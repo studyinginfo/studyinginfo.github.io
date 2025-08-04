@@ -1,0 +1,92 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar-y-category&code=PYBwLglsB2AEC8sDeAoWtJgDYFMBcya6GOAHmAQOQBMADHYAxKd1ALIC56gHHaBF2oF1ygDqaAYlUCyaYBYbQPOJlIgF8ANETDBgWSCAKpiGAE4QA5jpyaqAQ1IQAzpTkaT5gArAI0MAbVENYAJ4h8sSmYAWRgAmwADukhpS0lawuPrQQWqyRDraiYQauABmFL4AzACklm6w2jr-uZQsRTHoAEbAYAoAtlSFxRoAxjBgRo4AMkZ1OFgEYJoArjjRRKQAgqZmru5ePpQAbkZYUx3EDRMJRpoeAOJGqrAA2rQysLQAdLQsALoz6B4L5svEnt5UnUZnDpgMdduggoCjARLr5mOxLLD6Hk2AiaPRqCjbmjqABGTGIugo17oZLoMwGCA4JZXErqDSwaBGZprbj8ME_VZUOpHdngyHQnF5Wi0WC3HG0ACs1DFTwAHLdZcLbixhcTiKTiHSNIzmVRRBJahy_r5uZpebAIb1oSw6KLYCqbrA8hLHSxxbc8gBOWhqklEV5SADcQA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://echarts.apache.org/zh/js/vendors/echarts-gl/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://echarts.apache.org/zh/js/vendors/echarts-stat/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://echarts.apache.org/zh/js/vendors/echarts-graph-modularity/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  title: {
+    text: '2020到2024年游客人数和降水量'
+  },
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
+  legend: {},
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: {
+    type: 'value',
+    boundaryGap: [0, 0.04]
+  },
+  yAxis: {
+    type: 'category',
+    data: [ '2024年', '2023年', '2022年', '2021年', '2020年']
+  },
+  series: [
+    {
+      name: '游客人数',
+      type: 'bar',
+      data: [1300 , 1052, 1048, 800, 400]
+    },
+    {
+      name: '降水量',
+      type: 'bar',
+      data: [420 , 400, 350, 410, 390]
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
